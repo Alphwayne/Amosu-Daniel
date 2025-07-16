@@ -1,7 +1,7 @@
 // src/App.jsx
 import { useState } from "react";
 import Hero from "./components/hero";
-import ProjectCard from "./components/projectcard";
+import ProjectCard from "./components/projectCard";
 import { projects } from "./data/projects";
 
 function App() {
