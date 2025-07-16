@@ -3,6 +3,8 @@ import { useState } from "react";
 import Hero from "./components/hero";
 import ProjectCard from "./components/projectcard";
 import { projects } from "./data/projects";
+import styles from './styles/projectcard.module.css';
+
 
 function App() {
   const [activeCategory, setActiveCategory] = useState("All");
