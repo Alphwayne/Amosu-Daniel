@@ -6,7 +6,7 @@ export const projects = [
     category: "Beginner",
     title: "Basketball Scoreboard",
     image: "basketball-mage.jpg",
-    liveLink: "https://your-link.com",
+    liveLink: "https://basketball-score-view.vercel.app/",
     description: "A digital scoreboard built to track basketball scores interactively.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `interval = setInterval(() => 
@@ -20,7 +20,7 @@ export const projects = [
     category: "Beginner",
     title: "Simple Calculator Test",
     image: "cal-mage.jpg",
-    liveLink: "https://your-link.com",
+    liveLink: "https://calculator-pink-two-86.vercel.app/",
     description: "A basic calculator performing fundamental arithmetic operations.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
@@ -34,7 +34,7 @@ export const projects = [
     category: "Beginner",
     title: "Quiz Web App",
     image: "quiz-mage.jpg",
-    liveLink: "https://your-link.com",
+    liveLink: "https://quiz-pop-five.vercel.app/",
     description: "A simple interactive quiz app with score tracking and UI feedback.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
@@ -47,7 +47,7 @@ export const projects = [
     category: "Beginner",
     title: "Recipe Finder Web App",
     image: "recipe-mage.jpg",
-    liveLink: "https://your-link.com",
+    liveLink: "https://recipe-finder-one-delta.vercel.app/",
     description: "Fetches recipes from an API based on user input for meal planning.",
     tools: ["HTML", "CSS", "JS", "Edamam API"],
     codeSnippet: `
@@ -59,7 +59,7 @@ export const projects = [
     category: "Beginner",
     title: "TED TRANQUIL THREADS",
     image: "ted-mage.jpg",
-    liveLink: "https://your-link.com",
+    liveLink: "https://ted-tranquil-threads.vercel.app/",
     description: "A prototype e-commerce brand site for modern clothing and fashion.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
@@ -71,7 +71,7 @@ export const projects = [
     category: "Beginner",
     title: "To-Do List Web App",
     image: "list-mage.jpg",
-    liveLink: "https://your-link.com",
+    liveLink: "https://to-do-list-beryl-rho-99.vercel.app/",
     description: "A task tracking tool that lets users add, delete, and mark tasks.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
@@ -83,7 +83,7 @@ export const projects = [
     category: "Beginner",
     title: "Weather Forecast Web App",
     image: "weather-mage.jpg",
-    liveLink: "https://your-link.com",
+    liveLink: "https://weather-forecast-seven-inky.vercel.app/",
     description: "A weather app that shows forecasts using OpenWeatherMap API.",
     tools: ["HTML", "CSS", "JS", "OpenWeather API"],
     codeSnippet: `
@@ -119,7 +119,7 @@ export const projects = [
     category: "Advanced",
     title: "SCSI (Smilenation Child Support Initiative)",
     image: "scs-mage.png",
-    liveLink: "https://sncsi-org.vercel.app",
+    liveLink: "https://smilenation-sci.org",
     description: "A full-fledged donation and outreach platform for child support and welfare.",
     tools: ["React", "CSS Modules", "Firebase"],
     codeSnippet: `
