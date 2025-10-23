@@ -13,7 +13,7 @@ export default function ProjectCard({ project }) {
       whileHover={{ scale: 1.03 }}
     >
       <img src={project.image} alt={project.title} className={styles.preview} />
-      <div>
+      <div className={styles.content}>
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <p><strong>Tools:</strong> {project.tools.join(', ')}</p>

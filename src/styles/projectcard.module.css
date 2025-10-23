@@ -13,6 +13,8 @@
   transform-style: preserve-3d;
   perspective: 1000px;
   transition: transform 0.4s ease;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .card:hover {
@@ -71,6 +73,7 @@ h3 {
   font-size: 0.95rem;
   color: #ccc;
   margin: 0;
+  line-height: 1.4;
 }
 
 pre {
@@ -99,7 +102,7 @@ pre code {
 }
 
 a {
-  align-self: flex-start;
+  align-self: center;
   margin-top: 1rem;
   text-decoration: none;
   font-weight: bold;
@@ -122,18 +125,140 @@ a:hover {
   margin: 0 auto;
 }
 
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+}
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
     padding: 1.5rem 1rem;
+  }
+
+  .card {
+    border-radius: 15px;
+    margin: 0 0.5rem;
+  }
+
+  .content {
+    padding: 1.2rem;
+    gap: 0.6rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  pre {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+    height: 90px;
+  }
+
+  .preview {
+    height: 180px;
+  }
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .card {
+    border-radius: 12px;
+    margin: 0 0.25rem;
   }
 
   .content {
     padding: 1rem;
+    gap: 0.5rem;
   }
 
   h3 {
     font-size: 1.2rem;
+  }
+
+  .content p {
+    font-size: 0.85rem;
+    line-height: 1.3;
+  }
+
+  pre {
+    font-size: 0.75rem;
+    padding: 0.7rem;
+    height: 80px;
+    border-radius: 8px;
+  }
+
+  .preview {
+    height: 160px;
+  }
+
+  a {
+    font-size: 0.9rem;
+  }
+
+  /* Reduce animations on small devices for better performance */
+  @media (prefers-reduced-motion: reduce) {
+    .card {
+      animation: none;
+    }
+    
+    .preview {
+      animation: none;
+    }
+    
+    h3 {
+      animation: none;
+    }
+    
+    pre code {
+      animation: none;
+    }
+  }
+}
+
+/* Extra Small Mobile Responsive */
+@media (max-width: 360px) {
+  .grid {
+    padding: 0.8rem 0.25rem;
+    gap: 0.8rem;
+  }
+
+  .content {
+    padding: 0.8rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  .content p {
+    font-size: 0.8rem;
+  }
+
+  pre {
+    font-size: 0.7rem;
+    padding: 0.6rem;
+    height: 70px;
+  }
+
+  .preview {
+    height: 140px;
   }
 }

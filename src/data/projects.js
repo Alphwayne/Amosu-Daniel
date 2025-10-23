@@ -109,7 +109,7 @@ export const projects = [
 
     button.title = title;
     button.classList.add('status-button', color.toLowerCase());
-    return button;
+    return button;
 }
     })`,
   },
@@ -140,7 +140,7 @@ export const projects = [
     image: "roadman-mage.png",
     liveLink: "https://your-link.com",
     description: "A chatbot interface with conversational AI logic built in-browser.",
-    tools: ["React", "JavaScript"],
+    tools: ["React", "node.js"],
     codeSnippet: `
     function getBotReply(userInput) 
     { return aiModel.process(userInput); 
@@ -169,9 +169,6 @@ export const projects = [
     router.post("/check-coverage", async (req, res) => {
   const { address, lat, lng } = req.body;
         if (turf.booleanPointInPolygon(userPoint,
-         feature)) { coverageFound = true; break; }
-         turf.point(feature.geometry.coordinates),
-        "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
@@ -184,5 +181,54 @@ export const projects = [
           3.452876,
           6.425512000000001
     coverageArea)`
-  }
+  },
+
+  // NEW ADVANCED PROJECTS 
+  {
+    category: "Advanced",
+    title: "Payment Refund Center",
+    image: "payment-refund.png",
+    liveLink: "https://payment-refund.fob.ng/",
+    description: "Built a refund system where customers submit details and the data is sent to an API for processing, streamlining refund handling.",
+    tools: ["React", "Node.js", "API integration"],
+    codeSnippet: `
+    function RefundForm() {
+  const [details, setDetails] = useState({ name: "", email: "", amount: "" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/refund", details);
+      alert("Refund request submitted!");
+    } catch (err) {
+      console.error(err);
+      alert("Error submitting refund.");
+    }
+  };
+    }`
+  },
+
+  {
+  category: "Advanced",
+  title: "KKONTECH New Website",
+  image: "kkon-new-sitee.png",
+  liveLink: "https://kkon-new-site.vercel.app/",
+  description: "A modern rebuild of the KKONTech website featuring a sleek, responsive UI, a smart coverage checker that uses OpenStreetMap for address lookup and geocoding to match user coordinates against internal coverage data, plus an interactive blog with likes and comments. Designed for performance, scalability, and a smooth user experience.",
+  tools: ["React", "Node.js", "Express", "Geocoding", "OpenStreetMap", "REST APIs"],
+  codeSnippet: `
+  const checkCoverage = async (address) => {
+    // Convert address to coordinates
+    const geoRes = await fetch
+    const geoData = await geoRes.json();
+    const { lat, lon } = geoData[0];
+
+    // Check coordinates against internal coverage API
+    const response = await fetch(\`/api/coverage?lat=\${lat}&lon=\${lon}\`);
+    const data = await response.json();
+    return data.isCovered ? "Service Available" : "Out of Coverage Area";
+  };
+  `
+}
+
+
 ];

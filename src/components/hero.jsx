@@ -5,7 +5,7 @@ import styles from "../styles/Hero.module.css";
 const texts = [
   "Web Developer.",
   "Frontend Developer.",
-  "Mid-Stack Developer.",
+  "Full-Stack Developer.",
   "Problem Solver.",
   "Digital Creative.",
   "Builder of Real-World Web Tools.",
