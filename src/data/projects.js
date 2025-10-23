@@ -9,10 +9,25 @@ export const projects = [
     liveLink: "https://basketball-score-view.vercel.app/",
     description: "A digital scoreboard built to track basketball scores interactively.",
     tools: ["HTML", "CSS", "JavaScript"],
-    codeSnippet: `interval = setInterval(() => 
+    codeSnippet: `let homeScore = 0;
+let guestScore = 0;
+let timer = 0;
+let isPaused = true;
+
+function updateScore(team, points) {
+    if (team === 'home') 
+    homeScore += points;
+
+    else guestScore += points;
+    displayScores();
+}
+
+interval = setInterval(() => 
        if (!isPaused) {
             timer++;
-        const minutes = Math.floor(timer / 60);
+        const minutes = Math.flo
+        or(timer / 60);
+        const seconds = timer % 60;
       `,
   },
   
@@ -24,9 +39,23 @@ export const projects = [
     description: "A basic calculator performing fundamental arithmetic operations.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
+let display = document.
+getElementById('display');
+let currentInput = '';
+
+function appendNumber(num) {
+    currentInput += num;
+    display.value = currentInput;
+}
+
     function calculate(a, b, op)
      {\n  return op === '+' ?
-      a + b : a - b;\n}`,
+      a + b : a - b;\n}
+
+function clearDisplay() {
+    currentInput = '';
+    display.value = '';
+}`,
   },
 
   
@@ -38,9 +67,27 @@ export const projects = [
     description: "A simple interactive quiz app with score tracking and UI feedback.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
+let currentQuestion = 0;
+let score = 0;
+const questions = [
+    { question: "What is 2+2?",
+      options: ["3", "4", "5"],
+       answer: "B" }
+];
+
+function selectAnswer(option) {
     const answer = 
     'B';\nif (selected === answer) 
-    score++;`,
+    score++;
+    
+    currentQuestion++;
+    if (currentQuestion 
+    < questions.length) {
+        showQuestion();
+    } else {
+        showResults();
+    }
+}`,
   },
 
   {
@@ -51,9 +98,24 @@ export const projects = [
     description: "Fetches recipes from an API based on user input for meal planning.",
     tools: ["HTML", "CSS", "JS", "Edamam API"],
     codeSnippet: `
+const searchBtn = document.
+getElementById('search-btn');
+const recipeContainer = document.
+getElementById('recipes');
+
+searchBtn.addEventListener('click', () => {
+    const query = document.
+    getElementById('search-input').value;
+    
     fetch('https://api.edamam.com/...').
     then(res =>
-       res.json())`,
+       res.json())
+    .then(data => {
+        displayRecipes(data.hits);
+    })
+    .catch(err => console.error
+    ('Error:', err));
+});`,
   },
   {
     category: "Beginner",
@@ -63,8 +125,27 @@ export const projects = [
     description: "A prototype e-commerce brand site for modern clothing and fashion.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
+const products = [
+    { name: "T-Shirt", price: 25, image: "tshirt.jpg" },
+    { name: "Jeans", price: 45, image: "jeans.jpg" }
+];
+
+function renderProductCard(product) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = \`
+        <img src="\${product.image}" alt=
+        "\${product.name}">
+        <h3>\${product.name}</h3>
+        <p>$\${product.price}</p>
+        <button onclick="addToCart
+        ('\${product.name}')">Add
+         to Cart</button>
+    \`;
+    
     products.forEach(item => 
-      renderProductCard(item));`,
+      renderProductCard(item));
+}`,
   },
 
   {
@@ -75,9 +156,23 @@ export const projects = [
     description: "A task tracking tool that lets users add, delete, and mark tasks.",
     tools: ["HTML", "CSS", "JavaScript"],
     codeSnippet: `
-    tasks.push({ title:
-     input.value, done: 
-     false });`,
+let tasks = [];
+const taskInput = document.getElementById('task-input');
+
+function addTask() {
+    if (taskInput.value.trim() !== '') {
+        tasks.push({ title:
+         input.value, done: 
+         false });
+        renderTasks();
+        taskInput.value = '';
+    }
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    renderTasks();
+}`,
   },
   {
     category: "Beginner",
@@ -87,8 +182,24 @@ export const projects = [
     description: "A weather app that shows forecasts using OpenWeatherMap API.",
     tools: ["HTML", "CSS", "JS", "OpenWeather API"],
     codeSnippet: `
+const apiKey = 'your-api-key';
+const cityInput = document.getElementById('city-input');
+
+function getWeather() {
+    const city = cityInput.value;
+    const url = \`https://api.openweathermap.org/data/2.5
+    /weather?q=\${city}&appid=\${apiKey}&units=metric\`;
+    
     fetch('api.openweathermap.org/data').
-    then(...)`,
+    then(...)
+    .then(data => {
+        displayWeather(data);
+    })
+    .catch(error => {
+        console.error('Error fetching weather:',
+         error);
+    });
+}`,
   },
 
   // 🚀 ADVANCED PROJECTS
@@ -223,9 +334,11 @@ export const projects = [
     const { lat, lon } = geoData[0];
 
     // Check coordinates against internal coverage API
-    const response = await fetch(\`/api/coverage?lat=\${lat}&lon=\${lon}\`);
+    const response = await fetch
+    (\`/api/coverage?lat=\${lat}&lon=\${lon}\`);
     const data = await response.json();
-    return data.isCovered ? "Service Available" : "Out of Coverage Area";
+    return data.isCovered ? "Service Available" 
+    : "Out of Coverage Area";
   };
   `
 }
