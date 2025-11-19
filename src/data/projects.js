@@ -293,12 +293,11 @@ function getWeather() {
           6.425512000000001
     coverageArea)`
   },
-
-  // NEW ADVANCED PROJECTS 
+// NEW ADVANCED PROJECTS 
   {
     category: "Advanced",
     title: "Payment Refund Center",
-    image: "payment-refund.png",
+    image: ["payment-refund.png"],
     liveLink: "https://payment-refund.fob.ng/",
     description: "Built a refund system where customers submit details and the data is sent to an API for processing, streamlining refund handling.",
     tools: ["React", "Node.js", "API integration"],
@@ -322,8 +321,8 @@ function getWeather() {
   {
   category: "Advanced",
   title: "KKONTECH New Website",
-  image: "kkon-new-sitee.png",
-  liveLink: "https://kkon-new-site.vercel.app/",
+  image: ["kkon-new-sitee.png"],
+  liveLink: "https://www.kkontech.com/",
   description: "A modern rebuild of the KKONTech website featuring a sleek, responsive UI, a smart coverage checker that uses OpenStreetMap for address lookup and geocoding to match user coordinates against internal coverage data, plus an interactive blog with likes and comments. Designed for performance, scalability, and a smooth user experience.",
   tools: ["React", "Node.js", "Express", "Geocoding", "OpenStreetMap", "REST APIs"],
   codeSnippet: `
@@ -341,7 +340,34 @@ function getWeather() {
     : "Out of Coverage Area";
   };
   `
+},
+
+  {
+  category: "Advanced",
+  title: "Fly Occasion",
+  image: ["fly-cassion-figma.png", "fly-cassion-mage.png"],
+  liveLink: "https://fly-occassion.vercel.app/",
+  description: "A precise pixel-perfect implementation of a Figma design, creating a complete website replica using only HTML, CSS, and JavaScript. Faithfully translated the designer's vision into a fully functional web experience with attention to detail and responsive design.",
+  tools: ["HTML", "CSS", "JavaScript", "Figma"],
+  codeSnippet: `
+  // Responsive navigation implementation
+  const toggleMenu = () => {
+    const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  };
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+  `
 }
-
-
 ];
