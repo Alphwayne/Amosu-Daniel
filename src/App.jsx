@@ -1,9 +1,9 @@
 // src/App.jsx
 import { useState } from "react";
 import Hero from "./components/hero";
-import ProjectCard from "./components/projectcard";
+import ProjectCard from "./components/ProjectCard";  // FIXED
 import { projects } from "./data/projects";
-import styles from './styles/projectcard.module.css';
+import styles from './styles/ProjectCard.module.css';  // FIXED
 
 
 function App() {
