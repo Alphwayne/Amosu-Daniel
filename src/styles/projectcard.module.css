@@ -156,7 +156,7 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Tablet Responsive */
+/* Tablet Responsiveness */
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
