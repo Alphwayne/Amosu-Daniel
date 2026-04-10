@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Hero from "./components/hero";
 import ProjectCard from "./components/ProjectCard";
 import { projects } from "./data/projects";
-import styles from './styles/ProjectCard.module.css';
+import styles from './styles/projectcard.module.css';
 
 function App() {
   const [vaultUnlocked, setVaultUnlocked] = useState(false);

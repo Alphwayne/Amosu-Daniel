@@ -1,6 +1,6 @@
-// src/components/ProjectCard.jsx
+/* eslint-disable no-unused-vars */
 import { motion } from 'framer-motion';
-import styles from "../styles/ProjectCard.module.css";
+import styles from "../styles/projectcard.module.css";
 
 export default function ProjectCard({ project }) {
   return (
