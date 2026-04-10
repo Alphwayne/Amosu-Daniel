@@ -1,9 +1,8 @@
-// src/data/projects.js
-
 export const projects = [
-  // 🧪 BEGINNER PROJECTS
+  //  VAULT PROJECTS (Beginner + Food Fusion - hidden unless unlocked)
   {
-    category: "Beginner",
+    category: "Vault",
+    isVaulted: true,
     title: "Basketball Scoreboard",
     image: "basketball-mage.jpg",
     liveLink: "https://basketball-score-view.vercel.app/",
@@ -32,7 +31,8 @@ interval = setInterval(() =>
   },
   
   {
-    category: "Beginner",
+    category: "Vault",
+    isVaulted: true,
     title: "Simple Calculator Test",
     image: "cal-mage.jpg",
     liveLink: "https://calculator-pink-two-86.vercel.app/",
@@ -58,9 +58,9 @@ function clearDisplay() {
 }`,
   },
 
-  
   {
-    category: "Beginner",
+    category: "Vault",
+    isVaulted: true,
     title: "Quiz Web App",
     image: "quiz-mage.jpg",
     liveLink: "https://quiz-pop-five.vercel.app/",
@@ -91,7 +91,8 @@ function selectAnswer(option) {
   },
 
   {
-    category: "Beginner",
+    category: "Vault",
+    isVaulted: true,
     title: "Recipe Finder Web App",
     image: "recipe-mage.jpg",
     liveLink: "https://recipe-finder-one-delta.vercel.app/",
@@ -118,7 +119,8 @@ searchBtn.addEventListener('click', () => {
 });`,
   },
   {
-    category: "Beginner",
+    category: "Vault",
+    isVaulted: true,
     title: "TED TRANQUIL THREADS",
     image: "ted-mage.jpg",
     liveLink: "https://ted-tranquil-threads.vercel.app/",
@@ -149,7 +151,8 @@ function renderProductCard(product) {
   },
 
   {
-    category: "Beginner",
+    category: "Vault",
+    isVaulted: true,
     title: "To-Do List Web App",
     image: "list-mage.jpg",
     liveLink: "https://to-do-list-beryl-rho-99.vercel.app/",
@@ -175,7 +178,8 @@ function deleteTask(index) {
 }`,
   },
   {
-    category: "Beginner",
+    category: "Vault",
+    isVaulted: true,
     title: "Weather Forecast Web App",
     image: "weather-mage.jpg",
     liveLink: "https://weather-forecast-seven-inky.vercel.app/",
@@ -202,30 +206,28 @@ function getWeather() {
 }`,
   },
 
-  // 🚀 ADVANCED PROJECTS
-
   {
-    category: "Advanced",
-    title: "Food Fusion ",
+    category: "Vault",
+    isVaulted: true,
+    title: "Food Fusion",
     image: "fusion-mage.png",
     liveLink: "https://food-fusion-tau.vercel.app",
-    description: "Display foods actively available at cafetrias and can be ordered.",
-    tools: ["Html", "CSS Modules", "Javascript"],
+    description: "Display foods actively available at cafeterias and can be ordered. (Final Year Project)",
+    tools: ["HTML", "CSS Modules", "JavaScript"],
     codeSnippet: `
     const foodItems = [
     { name: 'Sandwich', status: 'available', image: 'sandwich.jpg' },
     { name: 'Salad', status: 'soon', image: 'salad.jpg' },
     { name: 'Pizza', status: 'not-available', image: 'pizza.jpg' },
-    // Add more food items as needed
+    ];
 
     button.title = title;
     button.classList.add('status-button', color.toLowerCase());
     return button;
-}
-    })`,
+}`,
   },
 
-
+  // 🚀 ADVANCED PROJECTS (Always visible - no vault flag)
   {
     category: "Advanced",
     title: "SCSI (Smilenation Child Support Initiative)",
@@ -243,7 +245,6 @@ function getWeather() {
         dropdownContent.classList.toggle("show");
     })`,
   },
-
 
   {
     category: "Advanced",
@@ -265,8 +266,6 @@ function getWeather() {
         disabled={isListening || isLoading}
     }`,
   },
-
-
 
   {
     category: "Advanced",
@@ -293,7 +292,6 @@ function getWeather() {
           6.425512000000001
     coverageArea)`
   },
-// NEW ADVANCED PROJECTS 
   {
     category: "Advanced",
     title: "Payment Refund Center",
@@ -319,13 +317,13 @@ function getWeather() {
   },
 
   {
-  category: "Advanced",
-  title: "KKONTECH New Website",
-  image: ["kkon-new-sitee.png"],
-  liveLink: "https://www.kkontech.com/",
-  description: "A modern rebuild of the KKONTech website featuring a sleek, responsive UI, a smart coverage checker that uses OpenStreetMap for address lookup and geocoding to match user coordinates against internal coverage data, plus an interactive blog with likes and comments. Designed for performance, scalability, and a smooth user experience.",
-  tools: ["React", "Node.js", "Express", "Geocoding", "OpenStreetMap", "REST APIs"],
-  codeSnippet: `
+    category: "Advanced",
+    title: "KKONTech & Firstfiber Website",
+    image: ["kkon-new-sitee.png"],
+    liveLink: "https://www.kkontech.com/",
+    description: "A modern rebuild of the KKONTech website featuring a sleek, responsive UI, a smart coverage checker that uses OpenStreetMap for address lookup and geocoding to match user coordinates against internal coverage data, plus an interactive blog with likes and comments. Designed for performance, scalability, and a smooth user experience.",
+    tools: ["React", "Node.js", "Express", "Geocoding", "OpenStreetMap", "REST APIs"],
+    codeSnippet: `
   const checkCoverage = async (address) => {
     // Convert address to coordinates
     const geoRes = await fetch
@@ -340,16 +338,16 @@ function getWeather() {
     : "Out of Coverage Area";
   };
   `
-},
+  },
 
   {
-  category: "Advanced",
-  title: "Fly Occasion",
-  image: ["fly-cassion-figma.png", "fly-cassion-mage.png"],
-  liveLink: "https://fly-occassion.vercel.app/",
-  description: "A precise pixel-perfect implementation of a Figma design, creating a complete website replica using only HTML, CSS, and JavaScript. Faithfully translated the designer's vision into a fully functional web experience with attention to detail and responsive design.",
-  tools: ["HTML", "CSS", "JavaScript", "Figma"],
-  codeSnippet: `
+    category: "Advanced",
+    title: "Fly Occasion",
+    image: ["fly-cassion-figma.png", "fly-cassion-mage.png"],
+    liveLink: "https://fly-occassion.vercel.app/",
+    description: "A precise pixel-perfect implementation of a Figma design, creating a complete website replica using only HTML, CSS, and JavaScript. Faithfully translated the designer's vision into a fully functional web experience with attention to detail and responsive design.",
+    tools: ["HTML", "CSS", "JavaScript", "Figma"],
+    codeSnippet: `
   // Responsive navigation implementation
   const toggleMenu = () => {
     const navMenu = document.querySelector('.nav-menu');
@@ -369,5 +367,5 @@ function getWeather() {
     });
   });
   `
-}
+  }
 ];

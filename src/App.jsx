@@ -1,47 +1,52 @@
-// src/App.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "./components/hero";
-import ProjectCard from "./components/ProjectCard";  // FIXED
+import ProjectCard from "./components/ProjectCard";
 import { projects } from "./data/projects";
-import styles from './styles/ProjectCard.module.css';  // FIXED
-
+import styles from './styles/ProjectCard.module.css';
 
 function App() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [vaultUnlocked, setVaultUnlocked] = useState(false);
+  
+  // Check sessionStorage on mount
+  useEffect(() => {
+    const wasUnlocked = sessionStorage.getItem("vaultUnlocked");
+    if (wasUnlocked === "true") {
+      setVaultUnlocked(true);
+    }
+  }, []);
 
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+  // Filter projects:
+  // - Show ALL Advanced projects always
+  // - Show Beginner (vaulted) projects ONLY if vault is unlocked
+  const visibleProjects = projects.filter(project => {
+    if (project.category === "Advanced") return true;
+    if (project.isVaulted && vaultUnlocked) return true;
+    return false;
+  });
 
   return (
     <>
-      <Hero />
-
+      <Hero onVaultUnlock={setVaultUnlocked} />
+      
       <div style={{ padding: "2rem", textAlign: "center" }}>
-        <div style={{ marginBottom: "1.5rem" }}>
-          {["All", "Beginner", "Advanced"].map((cat) => (
-            <button
-              key={cat}
-              style={{
-                padding: "10px 20px",
-                margin: "0 10px",
-                borderRadius: "25px",
-                background: activeCategory === cat ? "#00ffaa" : "#222",
-                color: "#fff",
-                border: "none",
-                cursor: "pointer",
-                transition: "0.2s",
-              }}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
+        {/* Show vault status indicator */}
+        {vaultUnlocked && (
+          <div style={{ 
+            background: "#00ffaa20", 
+            color: "#00ffaa", 
+            padding: "8px 16px", 
+            borderRadius: "25px",
+            display: "inline-block",
+            marginBottom: "1.5rem",
+            fontSize: "0.85rem",
+            border: "1px solid #00ffaa"
+          }}>
+            🔓 Vault Unlocked — Beginner Projects Visible
+          </div>
+        )}
+        
         <div className={styles.grid}>
-          {filteredProjects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
         </div>

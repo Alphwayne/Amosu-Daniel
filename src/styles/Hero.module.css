@@ -181,3 +181,94 @@ h1 {
     font-size: 0.9rem;
   }
 }
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  border: 1px solid #00ffaa;
+  box-shadow: 0 0 30px rgba(0, 255, 170, 0.2);
+}
+
+.modalContent h3 {
+  color: #00ffaa;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.modalContent p {
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.modalContent input {
+  width: 100%;
+  padding: 12px;
+  background: #0d0d1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.modalContent input:focus {
+  outline: none;
+  border-color: #00ffaa;
+}
+
+.error {
+  color: #ff4444;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.modalButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.modalButtons button {
+  padding: 8px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.modalButtons button:first-child {
+  background: #00ffaa;
+  color: #0d0d1a;
+}
+
+.modalButtons button:first-child:hover {
+  background: #00cc88;
+  transform: scale(1.02);
+}
+
+.modalButtons button:last-child {
+  background: #333;
+  color: white;
+}
+
+.modalButtons button:last-child:hover {
+  background: #444;
+}
