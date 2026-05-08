@@ -306,6 +306,38 @@ function getWeather() {
   },
 
   {
+  category: "Advanced",
+  title: "Exception Manager",
+  image: ["exception-manager.png"],
+  liveLink: "http://exception-manager.fob.ng/",
+  description:
+    "Developed a full-stack audit and compliance management platform for assigning, tracking, and resolving audit exceptions and recommendations across unit heads and departments. Built with TypeScript, React, Node.js, PostgreSQL, and Supabase Edge Functions for scalable backend automation and real-time workflow management.",
+  tools: [
+    "TypeScript",
+    "React",
+    "Node.js",
+    "PostgreSQL",
+    "Supabase",
+    "Edge Functions"
+  ],
+  codeSnippet: `
+  async function assignException(exceptionData) {
+    try {
+      const response = await axios.post(
+        "/api/exceptions/assign",
+        exceptionData
+      );
+
+      console.log("Exception assigned successfully");
+      return response.data;
+    } catch (error) {
+      console.error("Assignment failed:", error);
+    }
+  }
+  `
+},
+
+  {
     category: "Advanced",
     title: "SCSI (Smilenation Child Support Initiative)",
     image: "scs-mage.png",
