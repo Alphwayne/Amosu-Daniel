@@ -230,6 +230,108 @@ function getWeather() {
   // 🚀 ADVANCED PROJECTS (Always visible - no vault flag)
   {
     category: "Advanced",
+    title: "Dreamworks Direct",
+    image: ["dreamworks.png"],
+    liveLink: "https://www.dreamworksdirect.com",
+    description: "Contracted to fully revamp the Dreamworks Direct Shopify storefront, rebuilt from scratch as a headless commerce site with Next.js connected to the client's existing Shopify backend. Includes a custom AI chatbot powered by the OpenAI API for customer support, plus a separate admin panel for managing site content and blog features independently of Shopify.",
+    tools: ["Next.js", "Shopify (Headless)", "OpenAI API", "React", "Node.js"],
+    codeSnippet: `
+  async function getShopifyProducts() {
+    const res = await fetch(SHOPIFY_STOREFRONT_URL, {
+      method: "POST",
+      headers: {
+        "X-Shopify-Storefront-Access-Token": token,
+      body: JSON.stringify({ query: PRODUCTS_QUERY }),
+    });
+    const { data } = await res.json();
+    return data.products.edges.map(edge => edge.node);
+  }
+
+  async function askAssistant(message) {
+    const reply = await openai.chat.completions.create({
+      model: "gpt-4",
+      messages: [{ role: "user", content: message }],
+    });
+    return reply.choices[0].message.content;
+  }
+  `
+  },
+
+  {
+    category: "Advanced",
+    title: "HP Nigeria",
+    image: ["hp-niger.png"],
+    liveLink: "https://hp-niger.onrender.com/",
+    description: "Official-style e-commerce storefront for a client selling genuine HP laptops, desktops, monitors and accessories across Nigeria. Built with a Supabase-backed product catalog and storage for images/inventory, delivery coverage across all 36 states, and an integrated AI chatbot to help customers find products and get support. Currently in pre-launch.",
+    tools: ["React", "Node.js", "Supabase", "AI Chatbot"],
+    codeSnippet: `
+  async function fetchProducts(category) {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("category", category);
+
+    if (error) {
+      console.error("Error fetching products:", error);
+      return [];
+    }
+    return data;
+  }
+
+  function ProductCard({ product }) {
+    return (
+      <div className="product-card">
+        <img src={product.image_url} alt={product.name} />
+        <h3>{product.name}</h3>
+        <p>₦{product.price.toLocaleString()}</p>
+      </div>
+    );
+  }
+
+  async function askChatbot(userMessage) {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userMessage }),
+    });
+    const { reply } = await res.json();
+    return reply;
+  }
+  `
+  },
+
+  {
+    category: "Advanced",
+    title: "FSApp (Field Sales App)",
+    image: ["fsapp.png"],
+    liveLink: "https://fsapp.kkontech.com/",
+    description: "A full-stack TypeScript platform built solo for FirstFiber that lets field sales agents create and manage customer leads, with webhook integrations to the company CRM and CareHub for automated invoice generation on lead submission. Includes a no-coverage fallback that routes uncovered-area inquiries into the sales pipeline, multi-level role-based access (Sales Rep, Admin, Admin Oracle), and modules for lead tracking, follow-ups, coverage validation, payment verification, and failed sync retries.",
+    tools: ["TypeScript", "React", "Node.js", "PostgreSQL", "Webhooks"],
+    codeSnippet: `
+  async function submitLead(leadData) {
+    const { data: coverage } = await checkCoverage(leadData.address);
+
+    if (!coverage.isCovered) {
+      await routeToNoCoverageQueue(leadData);
+      return { status: "no-coverage" };
+    }
+
+    const lead = await db.leads.create({
+      ...leadData,
+      status: "pending",
+      assignedTo: getAssignedRep(leadData.region),
+    });
+
+    await triggerWebhook("crm.lead.created", lead);
+    await triggerWebhook("carehub.invoice.generate", lead);
+
+    return lead;
+  }
+  `
+  },
+
+  {
+    category: "Advanced",
     title: "KKONTech & Firstfiber Website",
     image: ["kkon-new-sitee.png"],
     liveLink: "https://www.kkontech.com/",

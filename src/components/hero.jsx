@@ -111,11 +111,13 @@ export default function Hero({ onVaultUnlock }) {
             I transform complex challenges into elegant digital solutions. With a passion for 
             clean code and user-centric design, I bridge the gap between ideas and functional reality.
           </p>
-          
+
           <p className={styles.story}>
             My journey began with curiosity and evolved into a craft. From building payment systems 
-            that handle real transactions to creating pixel-perfect implementations of complex designs, 
-            I thrive on turning abstract concepts into tangible digital experiences that make a difference.
+            that handle real transactions to full-stack platforms with role-based workflows and 
+            AI-powered features, I thrive on turning abstract concepts into tangible digital 
+            experiences that make a difference, often owning a project end-to-end, from architecture 
+            to deployment.
           </p>
 
           <p className={styles.passion}>
