@@ -111,3 +111,6 @@
 
 /* dual project image presentation */
 .story-card-image.dual-image{display:grid;grid-template-columns:1fr 1fr;gap:7px}.story-card-image.dual-image img{min-width:0}.stage-image.dual-image{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stage-image.dual-image img{min-width:0;object-fit:contain}.stage-image.dual-image>a,.stage-image.dual-image>.stage-coordinate{z-index:2}@media(max-width:800px){.story-card-image.dual-image{aspect-ratio:1.25/1}.story-card-image.dual-image img{height:100%;object-fit:contain}}
+
+/* mobile project remainder reveal */
+.mobile-all-projects{display:none}@media(max-width:800px){.mobile-all-projects{display:block;width:100%;margin:4px 0 20vw;padding:16px 18px;border:1px solid var(--ink);border-radius:999px;background:var(--ink);color:var(--green);font:10px 'DM Mono';text-transform:uppercase;letter-spacing:.04em;box-shadow:0 12px 22px rgba(32,35,29,.14);cursor:pointer}.mobile-all-projects:active{transform:translateY(1px)}}
