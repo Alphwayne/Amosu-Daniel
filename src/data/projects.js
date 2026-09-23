@@ -259,44 +259,22 @@ function getWeather() {
 
   {
     category: "Advanced",
-    title: "HP Nigeria",
-    image: ["hp-niger.png"],
-    liveLink: "https://hp-niger.onrender.com/",
-    description: "Official-style e-commerce storefront for a client selling genuine HP laptops, desktops, monitors and accessories across Nigeria. Built with a Supabase-backed product catalog and storage for images/inventory, delivery coverage across all 36 states, and an integrated AI chatbot to help customers find products and get support. Currently in pre-launch.",
-    tools: ["React", "Node.js", "Supabase", "AI Chatbot"],
+    title: "SeekMyServices",
+    image: "smservice.png",
+    liveLink: "https://www.seekmyservices.com/",
+    description: "A trusted Lagos marketplace for finding verified local artisans and services. Built a search-first experience with location-aware discovery, artisan profiles, service categories, event discovery, customer messaging, booking confidence flows, and a Jace chatbot system I built and trained to help people describe a job, choose the right service, and take the next step.",
+    tools: ["Next.js", "React", "Node.js", "Supabase", "OpenAI / Jace"],
     codeSnippet: `
-  async function fetchProducts(category) {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*")
-      .eq("category", category);
+  const guidance = await jace.chat({
+    message: customerQuestion,
+    context: { location: "Lagos", services },
+  });
 
-    if (error) {
-      console.error("Error fetching products:", error);
-      return [];
-    }
-    return data;
-  }
-
-  function ProductCard({ product }) {
-    return (
-      <div className="product-card">
-        <img src={product.image_url} alt={product.name} />
-        <h3>{product.name}</h3>
-        <p>₦{product.price.toLocaleString()}</p>
-      </div>
-    );
-  }
-
-  async function askChatbot(userMessage) {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: userMessage }),
-    });
-    const { reply } = await res.json();
-    return reply;
-  }
+  const results = await searchServices({
+    category: guidance.category,
+    location: "Lagos",
+    verifiedOnly: true,
+  });
   `
   },
 
@@ -351,6 +329,26 @@ function getWeather() {
     return data.isCovered ? "Service Available" 
     : "Out of Coverage Area";
   };
+  `
+  },
+
+  {
+    category: "Advanced",
+    title: "Stillness with Favie",
+    image: "stillness.png",
+    liveLink: "https://www.stillnesswithfavie.com/",
+    description: "A private restorative-stay experience designed around quiet, reflection, and thoughtful hosting. Built the invitation-led journey from experience storytelling and stay options through discreet stay requests, date selection, guest details, atmosphere preferences, and clear pre-confirmation guidance.",
+    tools: ["Next.js", "React", "Forms", "Date selection", "Responsive UI"],
+    codeSnippet: `
+  const stayRequest = {
+    stayType,
+    preferredDate,
+    arrivalTime,
+    atmosphere,
+    guestNotes,
+  };
+
+  await submitPrivateRequest(stayRequest);
   `
   },
   
@@ -441,6 +439,51 @@ function getWeather() {
 
   {
     category: "Advanced",
+    title: "HP Nigeria",
+    image: ["hp-niger.png"],
+    liveLink: "https://hp-niger.onrender.com/",
+    description: "Official-style e-commerce storefront for a client selling genuine HP laptops, desktops, monitors and accessories across Nigeria. Built with a Supabase-backed product catalog and storage for images/inventory, delivery coverage across all 36 states, and an integrated AI chatbot to help customers find products and get support. Currently in pre-launch.",
+    tools: ["React", "Node.js", "Supabase", "AI Chatbot"],
+    codeSnippet: `
+  async function fetchProducts(category) {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("category", category);
+
+    if (error) {
+      console.error("Error fetching products:", error);
+      return [];
+    }
+    return data;
+  }
+
+  function ProductCard({ product }) {
+    return (
+      <div className="product-card">
+        <img src={product.image_url} alt={product.name} />
+        <h3>{product.name}</h3>
+        <p>₦{product.price.toLocaleString()}</p>
+      </div>
+    );
+  }
+
+  async function askChatbot(userMessage) {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userMessage }),
+    });
+    const { reply } = await res.json();
+    return reply;
+  }
+  `
+  },
+
+
+  {
+    category: "Vault",
+    isVaulted: true,
     title: "SCSI (Smilenation Child Support Initiative)",
     image: "scs-mage.png",
     liveLink: "https://smilenation-sci.org",
@@ -458,7 +501,8 @@ function getWeather() {
   },
 
   {
-    category: "Advanced",
+    category: "Vault",
+    isVaulted: true,
     title: "Roadman AI (Chatbot)",
     image: "roadman-mage.png",
     liveLink: "https://your-link.com",
@@ -481,7 +525,8 @@ function getWeather() {
 
   
  {
-    category: "Advanced",
+    category: "Vault",
+    isVaulted: true,
     title: "KKON Coverage Checker",
     image: "kkon-mage.png",
     liveLink: "https://kkon-coverage-check.vercel.app/",
